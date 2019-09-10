@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      #gameScreen {
+        border: 1px solid black;
+
+      }
+
+
+      img {
+        display: none;
+        /* hide ball */
+      }
+    </style>
+    <title>test</title>
+  </head>
+  <body>
+    <img id = 'imgBall' src="assets/images/myBallNew.png" >
+    <img id = 'imgBrick' src="assets/images/brick.png" >
+    <img id = 'imgPaddle' src="assets/images/paddle.png" >
+    <canvas id="gameScreen" width="500" height="400" tabindex="-1"></canvas>
+    <script type="module" src = js/testgame.js></script>
+  </body>
+</html>
