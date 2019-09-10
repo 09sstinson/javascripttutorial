@@ -44,6 +44,7 @@ export function resolveCollision(ball, gameObject) {
   if (ballBottom >= objectTop && oldBallBottom <= oldObjectTop) {
     ball.speed.y *= -1;
     ball.position.y = -ball.height + objectTop;
+    if (gameObject.isPaddle === true) gameObject.collisionAngle();
   } else if (ballTop <= objectBottom && oldBallTop >= oldObjectBottom) {
     ball.speed.y *= -1;
     ball.position.y = objectBottom;

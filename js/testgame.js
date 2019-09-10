@@ -7,6 +7,8 @@ var snd = new Audio("assets/sounds/test.wav");
 let game = new Game(canvas);
 let lastTime = 0;
 
+console.log(game.madeup);
+
 function gameLoop(timeStamp) {
   let deltaTime = timeStamp - lastTime;
   lastTime = timeStamp;

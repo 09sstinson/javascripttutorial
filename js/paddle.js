@@ -11,6 +11,7 @@ export default class Paddle {
     this.maxSpeed = 5;
     this.speed = 0;
     this.game = game;
+    this.maxAngle = 30;
     this.position = {
       x: game.width / 2 - this.width / 2,
       y: game.height - this.height - 30,
@@ -19,6 +20,7 @@ export default class Paddle {
       x: game.width / 2 - this.width / 2,
       y: game.height - this.height - 30,
     };
+    this.isPaddle = true;
 
   }
 
@@ -40,6 +42,20 @@ export default class Paddle {
     this.speed = 0;
   }
 
+  collisionAngle() {
+    let ballMid = this.game.ball.position.x + this.game.ball.width / 2;
+    let paddleMid = this.position.x + this.width / 2;
+
+    let angle = 2 * this.maxAngle * (ballMid - paddleMid) / this.width;
+
+    this.game.ball.speed.x = Math.sin(angle * Math.PI / 180) * this.game.ball.absSpeed;
+    this.game.ball.speed.y = -Math.cos(angle * Math.PI / 180) * this.game.ball.absSpeed;
+
+
+
+
+  }
+
   update(deltaTime) {
 
     this.oldPosition.x = this.position.x;
@@ -55,6 +71,8 @@ export default class Paddle {
 
     if (colliding(this.game.ball, this)) {
       resolveCollision(this.game.ball, this);
+
+      console.log('hit');
     }
   }
 }

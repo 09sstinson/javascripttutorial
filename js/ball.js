@@ -13,9 +13,15 @@ export default class Ball {
       x: 4,
       y: 4
     };
+
+    this.absSpeed = Math.sqrt(4 * 4 + 4 * 4);
     this.width = 10;
     this.height = 10;
     this.game = game;
+  }
+
+  absSpeed() {
+    return Math.sqrt(this.speed.x ^ 2 + this.speed.y ^ 2);
   }
 
   wait(ms) {
